@@ -49,7 +49,7 @@ const skills = {
 
 export default function SkillsSection() {
   return (
-    <section className="w-full bg-black text-white py-16 px-6 md:px-20">
+    <section className="w-[1200px] bg-black text-white py-16 px-6 md:px-20">
       <h2 className="text-3xl md:text-4xl font-semibold mb-10 text-green-400">
         Skills & Tools
       </h2>

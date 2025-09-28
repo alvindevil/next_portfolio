@@ -4,7 +4,7 @@ import LandingPgae from './pages/landingPage'
 
 export default function Home() {
   return (
-    <div>
+    <div className='bg-black'>
       <LandingPgae/>
     </div>
   )
