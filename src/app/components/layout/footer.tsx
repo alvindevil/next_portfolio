@@ -6,7 +6,7 @@ import { FaGithub, FaLinkedin, FaTwitter } from 'react-icons/fa';
 
 export default function Footer() {
   return (
-    <footer className="w-full bg-black text-gray-400 px-6 md:px-20 py-10 mt-20 border-t border-gray-800">
+    <footer className="w-full bg-black  text-gray-400 px-6 md:px-20 py-10 mt-20 border-t border-gray-800 z-20">
       <div className="flex flex-col md:flex-row justify-between items-center gap-6">
         {/* Branding */}
         <div className="text-sm">
