@@ -21,22 +21,6 @@ const projects = [
     demo: '#',
   },
   {
-    name: 'AiDocify',
-    description: 'AI-powered PDF summarizer built with GPT-4 and MERN stack.',
-    tech: ['React', 'Node.js', 'OpenAI API'],
-    src: "/images/projects/AiDocify.png",
-    github: '#',
-    demo: '#',
-  },
-  {
-    name: 'AiDocify',
-    description: 'AI-powered PDF summarizer built with GPT-4 and MERN stack.',
-    tech: ['React', 'Node.js', 'OpenAI API'],
-    src: "/images/projects/AiDocify.png",
-    github: '#',
-    demo: '#',
-  },
-  {
     name: 'College Marketplace',
     description: 'A peer-to-peer platform for students to buy/sell essentials.',
     tech: ['Firebase', 'React', 'TailwindCSS'],
@@ -65,7 +49,7 @@ export default function ProjectsSection() {
               <img
                 src={project.src}
                 alt={project.name}
-                className="w-full h-full object-cover [object-position:center_12%] transition-transform duration-500 group-hover:scale-105"
+                className="w-full  h-full object-cover [object-position:center_12%] transition-transform duration-500 group-hover:scale-105"
               />
 
               {/* Hover overlay */}

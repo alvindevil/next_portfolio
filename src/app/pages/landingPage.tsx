@@ -12,15 +12,17 @@ import { useRouter } from "next/navigation";
 const LandingPage = () => {
   const { scrollY } = useScroll();
   const [isLayer, setIsLayer] = useState(true);
+   const [isScroll, setIsScroll] = useState(false);
 
   const router = useRouter();
   
-  useEffect(() => {
-    
-    return () => {
-      
-    };
-  }, [scrollY, isLayer]);
+   useEffect(() => {
+    const unsubscribe = scrollY.onChange((latest) => {
+      setIsScroll(latest >= 200); 
+    });
+
+    return () => unsubscribe();
+  }, [scrollY]);
 
 
   const bgX = useTransform(scrollY, [0, 10], [0, 600]);      
@@ -43,7 +45,7 @@ const LandingPage = () => {
           scale: bgScale,
           opacity: bgOpacity,
         }}
-        className={`fixed top-0 left-0 h-full object-contain z-10 transition-all duration-500 w-full`}
+        className={`fixed top-0 left-0 h-full object-contain  transition-all duration-500 w-full z-0`}
       />
 
        {/* Gradient Overlay (disappears on scroll) */}
@@ -76,12 +78,12 @@ const LandingPage = () => {
         }}
       />
       <motion.div
-        initial={{ opacity: 0, y: 500, x:100 }} // start invisible and slightly down
-        whileInView={{ opacity: 1, y: 0 }} // animate in
+        initial={{ opacity: 0, y: 500 }} 
+        whileInView={{ opacity: 1, y: 0 }} 
         transition={{ duration: 0.8, ease: "easeOut" }}
-        viewport={{ once: true, amount: 0.3 }} // triggers when 30% visible, only once
+        viewport={{ once: true, amount: 0.3 }} 
       >
-        <ProjectsSection />
+      <ProjectsSection />
       </motion.div>
       <ExperienceSection />
       <SkillsSection />
