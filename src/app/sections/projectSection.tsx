@@ -42,14 +42,14 @@ export default function ProjectsSection() {
         {projects.map((project, idx) => (
           <div
             key={idx}
-            className=" flex flex-col w-[90%] left-0 md:flex-row bg-gray-900/60 border border-gray-700 rounded-xl overflow-hidden hover:border-green-400 transition-colors duration-300 "
+            className=" flex flex-col w-[98%] left-0 md:flex-row bg-gray-900/60 border border-gray-700 rounded-xl overflow-hidden hover:border-green-400 transition-colors duration-300 "
           >
             {/* Left: Image */}
-            <div className="relative w-full md:w-1/2 h-[220px] md:h-[280px] overflow-hidden">
+            <div className="relative p-2 w-full md:w-1/2 h-[220px] md:h-[280px] overflow-hidden">
               <img
                 src={project.src}
                 alt={project.name}
-                className="w-full  h-full object-cover [object-position:center_12%] transition-transform duration-500 group-hover:scale-105"
+                className="w-full rounded-xl  h-full object-cover [object-position:center_12%] transition-transform duration-500 group-hover:scale-105"
               />
 
               {/* Hover overlay */}

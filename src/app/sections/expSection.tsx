@@ -6,6 +6,23 @@ import { FaInstagram, FaLinkedin, FaGlobe } from 'react-icons/fa';
 
 const experiences = [
   {
+    role: 'Full Stack Developer',
+    company: 'Northern Railway ',
+    duration: 'June 2025 – August 2025',
+    type: 'InternShip',
+    src: '/images/exp/STVT.png',
+    social: {
+      instagram: 'https://instagram.com/moneyflock',
+      website: 'https://moneyflock.com',
+      linkedin: 'https://linkedin.com/company/moneyflock',
+    },
+    description: [
+      'Collaborated to develop a full-stack application to manage STC, WTC, and Non-Railway candidates.',
+      'Implemented scalable front-end and back-end features, reducing manual processes.',
+      'Contributed to maintainable code improving operational efficiency. ',
+    ],
+  },
+  {
     role: 'Product Designer',
     company: 'MoneyFlock',
     duration: 'June 2024 – June 2025',
@@ -23,7 +40,7 @@ const experiences = [
     ],
   },
   {
-    role: 'Project Manager',
+    role: 'Agency Consultant',
     company: 'AeroInk',
     duration: 'Feb 2025 – June 2025',
     type: 'Freelance',
