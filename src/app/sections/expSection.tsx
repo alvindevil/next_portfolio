@@ -66,80 +66,91 @@ export default function ExperienceSection() {
         Experience
       </h2>
 
-      <div className="space-y-8">
-        {experiences.map((exp, idx) => (
-          <motion.div
-            key={idx}
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.3 }}
-            transition={{ duration: 0.6, ease: 'easeOut' }}
-            className="border-l-4 flex flex-row justify-between items-start border-green-400 pl-6 py-6 bg-gray-900/60 rounded-lg shadow-md hover:shadow-green-400/50 transform hover:-translate-y-1 transition-all duration-300"
-          >
-            {/* Left Side: Text */}
-            <div className="flex-1 pr-6 space-y-3">
-              <div className="flex items-center gap-3 flex-wrap">
-                <h3 className="text-xl md:text-2xl font-semibold text-white">
-                  {exp.role}
-                </h3>
-                <span className="px-3 py-1 text-xs font-medium rounded-full bg-green-400/20 text-green-300 border border-green-400/40">
-                  {exp.type}
-                </span>
+      <div className="relative ml-4">
+        {/* Vertical Timeline Line */}
+        <div className="absolute left-0 top-0 h-full w-[2px] bg-green-400"></div>
+
+        <div className="space-y-12">
+          {experiences.map((exp, idx) => (
+            <motion.div
+              key={idx}
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.3 }}
+              transition={{ duration: 0.6, ease: 'easeOut' }}
+              className="relative flex items-start"
+            >
+              {/* Dot */}
+              <div className="absolute -left-[11px] mt-3 w-5 h-5 rounded-full bg-black border-4 border-green-400 shadow-md"></div>
+
+              {/* Card */}
+              <div className="ml-8  flex flex-row justify-between items-start  pl-6 py-6 bg-gray-900/10 rounded-lg  hover:border-l-[0.5px] hover:border-r-[0.5px] hover:border-white transition-all ease-in-out  w-full box-border">
+                {/* Left Side: Text */}
+                <div className="flex-1 pr-6 space-y-3">
+                  <div className="flex items-center gap-3 flex-wrap">
+                    <h3 className="text-xl md:text-2xl font-semibold text-white">
+                      {exp.role}
+                    </h3>
+                    <span className="px-3 py-1 text-xs font-medium rounded-full bg-green-400/20 text-green-300 border border-green-400/40">
+                      {exp.type}
+                    </span>
+                  </div>
+
+                  <p className="text-sm text-green-300 font-medium">{exp.company}</p>
+                  <p className="text-sm text-gray-400">{exp.duration}</p>
+
+                  {/* Bullet List */}
+                  <ul className="list-disc list-inside text-gray-300 text-sm space-y-2 leading-relaxed font-semibold">
+                    {exp.description.map((point, i) => (
+                      <li key={i}>{point}</li>
+                    ))}
+                  </ul>
+                </div>
+
+                {/* Right Side: Logo + Social Links */}
+                <div className="flex flex-col items-center w-[10%] h-fit py-2 gap-y-2">
+                  <img
+                    className="w-full h-full object-cover "
+                    src={exp.src}
+                    alt={`${exp.company} logo`}
+                  />
+                  <div className="flex flex-row space-x-2 cursor-pointer">
+                    {exp.social.instagram && (
+                      <a
+                        href={exp.social.instagram}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-white/65 cursor-pointer  hover:text-white text-lg"
+                      >
+                        <FaInstagram />
+                      </a>
+                    )}
+                    {exp.social.website && (
+                      <a
+                        href={exp.social.website}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-white/65 cursor-pointer  hover:text-white text-lg"
+                      >
+                        <FaGlobe />
+                      </a>
+                    )}
+                    {exp.social.linkedin && (
+                      <a
+                        href={exp.social.linkedin}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-white/65 cursor-pointer  hover:text-white text-lg"
+                      >
+                        <FaLinkedin />
+                      </a>
+                    )}
+                  </div>
+                </div>
               </div>
-
-              <p className="text-sm text-green-300 font-medium">{exp.company}</p>
-              <p className="text-sm text-gray-400">{exp.duration}</p>
-
-              {/* Bullet List */}
-              <ul className="list-disc list-inside text-gray-300 text-sm space-y-2 leading-relaxed font-semibold">
-                {exp.description.map((point, i) => (
-                  <li key={i}>{point}</li>
-                ))}
-              </ul>
-            </div>
-
-            {/* Right Side: Logo + Social Links */}
-            <div className="flex flex-col items-center w-[10%] h-fit py-2 gap-y-2">
-              <img
-                className="w-full h-full object-cover "
-                src={exp.src}
-                alt={`${exp.company} logo`}
-              />
-              <div className="flex flex-row space-x-2 cursor-pointer">
-                {exp.social.instagram && (
-                  <a
-                    href={exp.social.instagram}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-white/65 cursor-pointer  hover:text-white text-lg"
-                  >
-                    <FaInstagram />
-                  </a>
-                )}
-                {exp.social.website && (
-                  <a
-                    href={exp.social.website}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-white/65 cursor-pointer  hover:text-white text-lg"
-                  >
-                    <FaGlobe />
-                  </a>
-                )}
-                {exp.social.linkedin && (
-                  <a
-                    href={exp.social.linkedin}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-white/65 cursor-pointer  hover:text-white text-lg"
-                  >
-                    <FaLinkedin />
-                  </a>
-                )}
-              </div>
-            </div>
-          </motion.div>
-        ))}
+            </motion.div>
+          ))}
+        </div>
       </div>
     </section>
   );

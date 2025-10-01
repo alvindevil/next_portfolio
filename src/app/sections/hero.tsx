@@ -42,7 +42,7 @@ export default function HeroSection({ prop }: HeroSectionProps) {
         </div>
 
         {/* Top Right Links */}
-        <div className="absolute top-6 right-6 text-white text-sm space-y-1 text-right">
+        <div className="absolute top-6 right-20 text-white text-sm space-y-1 text-right">
           <a href={prop.cvLink} className="hover:underline">
             Download CV
           </a>
@@ -55,7 +55,7 @@ export default function HeroSection({ prop }: HeroSectionProps) {
         {/* Center Left Experience Info */}
         <motion.div
           style={{ y: subTextY ,opacity: contentOpacity}}
-          className="absolute left-20 top-56 text-green-400 text-lg font-semibold"
+          className="absolute left-20 top-56 text-white/50 text-lg font-semibold"
         >
           <p>{prop.startEnd}</p>
           <p>{prop.years}</p>
@@ -74,7 +74,7 @@ export default function HeroSection({ prop }: HeroSectionProps) {
 
         <motion.p
           style={{ y: subTextY , opacity: contentOpacity}}
-          className="absolute left-20 top-74 text-white/50  font-extralight text-[20px]"
+          className="absolute left-20 top-74 text-white  font-extralight text-[20px]"
         >
           <span className="font-bold ">{prop.title}</span>
         </motion.p>

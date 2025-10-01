@@ -8,6 +8,8 @@ import Footer from "../components/layout/footer";
 import DynamicHeader from "../components/layout/DynamicHeader";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRouter } from "next/navigation";
+import AboutSection from "../sections/aboutSection";
+import ContactSection from "../sections/contactSection";
 
 const LandingPage = () => {
   const { scrollY } = useScroll();
@@ -30,7 +32,7 @@ const LandingPage = () => {
   const bgScale = useTransform(scrollY, [0, 10], [2, 0.8]); 
   const bgOpacity = useTransform(scrollY, [0, 300], [1, 0.5]); 
   const overlayOpacity = useTransform(scrollY, [0, 600], [1, 0]);
-  const lineOpacity = useTransform(scrollY, [0,2000], [0,1]);
+  const lineOpacity = useTransform(scrollY, [0,2000], [0,0.5]);
   const contentOpacity = useTransform(scrollY, [0,1200], [0,1]);
 
   return (
@@ -55,7 +57,7 @@ const LandingPage = () => {
       />
       <motion.div 
       style={{opacity : lineOpacity}}
-      className="w-[2px] h-[800px] bg-white fixed right-[700px] top-28 z-20">
+      className="w-[2px] h-[800px] bg-gray-500 fixed right-[700px] top-28 z-20">
       </motion.div>
       
       <HeroSection
@@ -63,7 +65,7 @@ const LandingPage = () => {
           name: "SHIVAM YADAV",
           experience: "1+ yrs exp.",
           years: "1+ yrs exp.",
-          startEnd: "2023 → 2025",
+          startEnd: "2024 → 2025",
           availability: "Available for work",
           title: "Full Stack Developer",
           quote:
@@ -77,16 +79,39 @@ const LandingPage = () => {
               }
         }}
       />
-      <ExperienceSection />
       <motion.div
-        initial={{ opacity: 0, y: 500 }} 
-        whileInView={{ opacity: 1, y: 0 }} 
+        initial={{ opacity: 0, y: 100 }}
+        whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, ease: "easeOut" }}
-        viewport={{ once: true, amount: 0.3 }} 
+        viewport={{ once: true, amount: 0.3 }}
       >
-      <ProjectsSection />
+        <AboutSection />
       </motion.div>
-      <SkillsSection />
+      <motion.div
+        initial={{ opacity: 0, y: 100 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, ease: "easeOut" }}
+        viewport={{ once: true, amount: 0.3 }}
+      >
+        <ExperienceSection />
+      </motion.div>
+      <motion.div
+        initial={{ opacity: 0, y: 100 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, ease: "easeOut" }}
+        viewport={{ once: true, amount: 0.3 }}
+      >
+        <ProjectsSection />
+      </motion.div>
+      <motion.div
+        initial={{ opacity: 0, y: 100 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, ease: "easeOut" }}
+        viewport={{ once: true, amount: 0.3 }}
+      >
+        <SkillsSection />
+      </motion.div>
+      <ContactSection/>
       <Footer />
     </div>
   );
