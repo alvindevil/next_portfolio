@@ -37,8 +37,8 @@ export default function HeroSection({ prop }: HeroSectionProps) {
         {/* Top Left Name and Availability */}
         <div className="absolute top-6 left-6 text-white text-sm font-semibold ">
           {prop.name}
-          <span className="inline-block w-2 h-2 bg-green-400 rounded-full shadow-[0_0_4px_1px_#22c55e] animate-pulse ml-6"></span>
-          <span className="text-green-400 ml-2">{prop.availability}</span>
+          <span className="inline-block w-2 h-2 bg-blue-600 rounded-full shadow-[0_0_4px_1px_#22c55e] animate-pulse ml-6"></span>
+          <span className="text-blue-400 ml-2">{prop.availability}</span>
         </div>
 
         {/* Top Right Links */}

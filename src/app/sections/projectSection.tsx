@@ -6,7 +6,7 @@ import { Github, ExternalLink } from 'lucide-react';
 const projects = [
   {
     name: 'NotionBlog',
-    description: 'A markdown-based blog powered by Notion API and MDX.',
+    description: 'A full stack web blog application using NextJs and mongoDb , Users can write and share blogs publicly and search and connect to each other , User Auth , Secure  features ',
     tech: ['Next.js', 'TailwindCSS', 'MDX'],
     src: "/images/projects/NotionBlog.png",
     github: '#',
@@ -14,15 +14,15 @@ const projects = [
   },
   {
     name: 'AiDocify',
-    description: 'AI-powered PDF summarizer built with GPT-4 and MERN stack.',
+    description: 'AiDocify is an AI-powered tool that automates document creation, organization, and summarization. It extracts key information and generates insights, boosting efficiency and productivity.',
     tech: ['React', 'Node.js', 'OpenAI API'],
     src: "/images/projects/AiDocify.png",
     github: '#',
     demo: '#',
   },
   {
-    name: 'College Marketplace',
-    description: 'A peer-to-peer platform for students to buy/sell essentials.',
+    name: 'Innovate Hub',
+    description: 'Innovate Hub is a startup-focused platform  that connects entrepreneurs, mentors, and investors. It streamlines idea validation, collaboration, and resource sharing to accelerate innovation.',
     tech: ['Firebase', 'React', 'TailwindCSS'],
     src: "/images/projects/InnovateHub.png",
     github: '#',
@@ -34,7 +34,7 @@ export default function ProjectsSection() {
   return (
     <section className="max-w-[1200px] bg-black text-white py-16 px-6 md:px-12 cursor-pointer relative ">
       {/* Sticky title */}
-      <h2 className="sticky top-0 bg-black text-3xl md:text-4xl font-semibold mb-10 text-green-400 z-10">
+      <h2 className="sticky top-0 bg-black text-3xl md:text-4xl font-semibold mb-10 text-white  z-10">
         Projects
       </h2>
 
@@ -42,7 +42,7 @@ export default function ProjectsSection() {
         {projects.map((project, idx) => (
           <div
             key={idx}
-            className=" flex flex-col w-[98%] left-0 md:flex-row bg-gray-900/60 border border-gray-700 rounded-xl overflow-hidden hover:border-green-400 transition-colors duration-300 "
+            className=" flex flex-col w-[98%] left-0 md:flex-row bg-gray-900/60 border border-gray-700 rounded-xl overflow-hidden hover:border-blue-400/50 transition-colors duration-300 "
           >
             {/* Left: Image */}
             <div className="relative p-2 w-full md:w-1/2 h-[220px] md:h-[280px] overflow-hidden">
@@ -73,7 +73,7 @@ export default function ProjectsSection() {
                 {project.tech.map((tech, index) => (
                   <span
                     key={index}
-                    className="bg-gray-800 text-sm text-green-300 px-3 py-1 rounded-full"
+                    className="bg-gray-800 text-sm text-blue-300 px-3 py-1 rounded-full"
                   >
                     {tech}
                   </span>

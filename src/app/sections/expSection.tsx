@@ -12,9 +12,9 @@ const experiences = [
     type: 'InternShip',
     src: '/images/exp/STVT.png',
     social: {
-      instagram: 'https://instagram.com/moneyflock',
-      website: 'https://moneyflock.com',
-      linkedin: 'https://linkedin.com/company/moneyflock',
+      instagram: 'https://instagram.com',
+      website: 'https://stccharbagh.in/',
+      linkedin: 'https://linkedin.com',
     },
     description: [
       'Collaborated to develop a full-stack application to manage STC, WTC, and Non-Railway candidates.',
@@ -47,7 +47,7 @@ const experiences = [
     src: '/images/exp/aeroink.png',
     social: {
       instagram: 'https://instagram.com/aeroink',
-      website: 'https://aeroink.com',
+      website: 'https://aeroinkservices.com',
       linkedin: 'https://linkedin.com/company/aeroink',
     },
     description: [
@@ -62,13 +62,13 @@ const experiences = [
 export default function ExperienceSection() {
   return (
     <section className="w-[1200px] z-1 bg-black text-white py-16 px-6 md:px-12 cursor-pointer">
-      <h2 className="text-3xl md:text-4xl font-semibold mb-10 text-green-400">
-        Experience
+      <h2 className="text-3xl md:text-4xl font-semibold mb-10 text-white">
+        <span className='bg-gray-950 border-b-[0.3px] pb-1 pr-5 border-white/50 text-white'> Experience </span>
       </h2>
 
       <div className="relative ml-4">
         {/* Vertical Timeline Line */}
-        <div className="absolute left-0 top-0 h-full w-[2px] bg-green-400"></div>
+        <div className="absolute left-0 top-0 h-full w-[2px] bg-white/40"></div>
 
         <div className="space-y-12">
           {experiences.map((exp, idx) => (
@@ -81,22 +81,25 @@ export default function ExperienceSection() {
               className="relative flex items-start"
             >
               {/* Dot */}
-              <div className="absolute -left-[11px] mt-3 w-5 h-5 rounded-full bg-black border-4 border-green-400 shadow-md"></div>
+              
+              <motion.div 
+              whileHover={{scale: 2}}
+              className="absolute -left-[10px] mt-4 mb-3 w-5 h-5 rounded-full bg-white border-[6px] border-black box-border "></motion.div>
 
               {/* Card */}
-              <div className="ml-8  flex flex-row justify-between items-start  pl-6 py-6 bg-gray-900/10 rounded-lg  hover:border-l-[0.5px] hover:border-r-[0.5px] hover:border-white transition-all ease-in-out  w-full box-border">
+              <div className="ml-8  flex flex-row justify-between items-start  pl-6 py-6 bg-gray-900/10 rounded-lg  hover:border-white transition-all ease-in-out  w-full box-border">
                 {/* Left Side: Text */}
                 <div className="flex-1 pr-6 space-y-3">
                   <div className="flex items-center gap-3 flex-wrap">
                     <h3 className="text-xl md:text-2xl font-semibold text-white">
                       {exp.role}
                     </h3>
-                    <span className="px-3 py-1 text-xs font-medium rounded-full bg-green-400/20 text-green-300 border border-green-400/40">
+                    <span className="px-3 py-1 text-xs font-medium rounded-full bg-blue-400/50 text-white border border-white/40">
                       {exp.type}
                     </span>
                   </div>
 
-                  <p className="text-sm text-green-300 font-medium">{exp.company}</p>
+                  <span className="text-sm text-white font-bold bg-white/20 p-1 mb-4 "> {exp.company} </span>
                   <p className="text-sm text-gray-400">{exp.duration}</p>
 
                   {/* Bullet List */}

@@ -32,7 +32,7 @@ const LandingPage = () => {
   const bgScale = useTransform(scrollY, [0, 10], [2, 0.8]); 
   const bgOpacity = useTransform(scrollY, [0, 300], [1, 0.5]); 
   const overlayOpacity = useTransform(scrollY, [0, 600], [1, 0]);
-  const lineOpacity = useTransform(scrollY, [0,2000], [0,0.5]);
+  const lineOpacity = useTransform(scrollY, [0,200,800], [0,0.5,0]);
   const contentOpacity = useTransform(scrollY, [0,1200], [0,1]);
 
   return (
@@ -47,7 +47,7 @@ const LandingPage = () => {
           scale: bgScale,
           opacity: bgOpacity,
         }}
-        className={`fixed top-0 left-0 h-full object-contain  transition-all duration-500 w-full z-0`}
+        className={`fixed top-0 left-0 h-full object-contain  transition-all ease-in-out duration-300 w-full `}
       />
 
        {/* Gradient Overlay (disappears on scroll) */}
@@ -79,7 +79,7 @@ const LandingPage = () => {
               }
         }}
       />
-      <motion.div
+      <motion.div id="about"
         initial={{ opacity: 0, y: 100 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, ease: "easeOut" }}
@@ -87,7 +87,7 @@ const LandingPage = () => {
       >
         <AboutSection />
       </motion.div>
-      <motion.div
+      <motion.div id="exp"
         initial={{ opacity: 0, y: 100 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, ease: "easeOut" }}
@@ -95,7 +95,7 @@ const LandingPage = () => {
       >
         <ExperienceSection />
       </motion.div>
-      <motion.div
+      <motion.div id="projects"
         initial={{ opacity: 0, y: 100 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, ease: "easeOut" }}
@@ -103,7 +103,7 @@ const LandingPage = () => {
       >
         <ProjectsSection />
       </motion.div>
-      <motion.div
+      <motion.div id="skills"
         initial={{ opacity: 0, y: 100 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, ease: "easeOut" }}
@@ -111,7 +111,9 @@ const LandingPage = () => {
       >
         <SkillsSection />
       </motion.div>
-      <ContactSection/>
+      <motion.div id="contact" className="bg-black z-20 mt-28 pt-28">
+        <ContactSection />
+      </motion.div>
       <Footer />
     </div>
   );
