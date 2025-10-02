@@ -32,7 +32,7 @@ const LandingPage = () => {
   const bgScale = useTransform(scrollY, [0, 10], [2, 0.8]); 
   const bgOpacity = useTransform(scrollY, [0, 300], [1, 0.5]); 
   const overlayOpacity = useTransform(scrollY, [0, 600], [1, 0]);
-  const lineOpacity = useTransform(scrollY, [0,200,800], [0,0.5,0]);
+  const lineOpacity = useTransform(scrollY, [0,4000,5000], [0,0.5,0]);
   const contentOpacity = useTransform(scrollY, [0,1200], [0,1]);
 
   return (
@@ -57,7 +57,7 @@ const LandingPage = () => {
       />
       <motion.div 
       style={{opacity : lineOpacity}}
-      className="w-[2px] h-[800px] bg-gray-500 fixed right-[700px] top-28 z-20">
+      className="w-[2px] h-[800px] bg-gray-500 fixed right-[30%] top-28 z-20">
       </motion.div>
       
       <HeroSection
@@ -70,12 +70,12 @@ const LandingPage = () => {
           title: "Full Stack Developer",
           quote:
             "WHETHER IT’S WRITING CODE OR STRUCTURING A LIFE, I AIM FOR CLARITY, CALM AND LONG-TERM IMPACT. I BELIEVE GOOD SYSTEMS ARE BUILT WITH INTENT AND CONSISTENCY",
-          cvLink: "/files/cv.pdf",
+          cvLink: "https://drive.google.com/uc?export=download&id=1uPlKH1DzVLAzScxA_ywjkL1PHiLirft6",
           contactLink:
             "https://mail.google.com/mail/?view=cm&fs=1&to=yadavs47334@gmail.com",
           cta:{
                 type: "Work",
-                onClick: ()=>{router.push('/client/works');}
+                onClick: ()=>{router.push('#projects');}
               }
         }}
       />
