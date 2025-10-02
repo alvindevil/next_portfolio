@@ -10,7 +10,7 @@ export default function Footer() {
       <div className="flex flex-col md:flex-row justify-between items-center gap-6">
         {/* Branding */}
         <div className="text-sm">
-          © {new Date().getFullYear()} <span className="text-white font-semibold"></span>. All rights reserved.
+          ©{new Date().getFullYear()} <span className="text-white font-semibold"></span>. All rights reserved.
         </div>
 
         {/* Navigation Links */}
