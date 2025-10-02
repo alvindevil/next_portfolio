@@ -9,30 +9,30 @@ const projects = [
     description: 'A full stack web blog application using NextJs and mongoDb , Users can write and share blogs publicly and search and connect to each other , User Auth , Secure  features ',
     tech: ['Next.js', 'TailwindCSS', 'MDX'],
     src: "/images/projects/NotionBlog.png",
-    github: '#',
-    demo: '#',
+    github: 'https://github.com/alvindevil/NextJs_Auth',
+    demo: 'https://next-js-auth-amber.vercel.app/',
   },
   {
     name: 'AiDocify',
     description: 'AiDocify is an AI-powered tool that automates document creation, organization, and summarization. It extracts key information and generates insights, boosting efficiency and productivity.',
     tech: ['React', 'Node.js', 'OpenAI API'],
     src: "/images/projects/AiDocify.png",
-    github: '#',
-    demo: '#',
+    github: 'https://github.com/alvindevil/Ai_Docify',
+    demo: 'ai-docify-ten.vercel.app',
   },
   {
     name: 'Innovate Hub',
     description: 'Innovate Hub is a startup-focused platform  that connects entrepreneurs, mentors, and investors. It streamlines idea validation, collaboration, and resource sharing to accelerate innovation.',
     tech: ['Firebase', 'React', 'TailwindCSS'],
     src: "/images/projects/InnovateHub.png",
-    github: '#',
-    demo: '#',
+    github: 'https://github.com/alvindevil/founders-hub',
+    demo: 'https://github.com/alvindevil/founders-hub',
   },
 ];
 
 export default function ProjectsSection() {
   return (
-    <section className="max-w-[1200px] bg-black text-white py-16 px-6 md:px-12 cursor-pointer relative ">
+    <section className="max-w-[65vw] bg-black text-white py-16 px-6 md:px-12 cursor-pointer relative ">
       {/* Sticky title */}
       <h2 className="sticky top-0 bg-black text-3xl md:text-4xl font-semibold mb-10 text-white  z-10">
         Projects
