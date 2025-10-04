@@ -40,7 +40,7 @@ const experiences = [
     ],
   },
   {
-    role: 'Full stack developer ',
+    role: ' Project Manager ',
     company: 'AeroInk',
     duration: 'Feb 2025 – June 2025',
     type: 'Freelance',
