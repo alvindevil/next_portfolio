@@ -70,7 +70,7 @@ const LandingPage = () => {
           title: "Tech Entrepreneur",
           quote:
             "WHETHER IT’S WRITING CODE OR STRUCTURING A LIFE, I AIM FOR CLARITY, CALM AND LONG-TERM IMPACT. I BELIEVE GOOD SYSTEMS ARE BUILT WITH INTENT AND CONSISTENCY",
-          cvLink: "https://drive.google.com/uc?export=download&id=1uPlKH1DzVLAzScxA_ywjkL1PHiLirft6",
+          cvLink: "https://drive.google.com/uc?export=download&id=1H9I2-6ff58Rc-iU1ylDrHwHILV1rhUY- ",
           contactLink:
             "https://mail.google.com/mail/?view=cm&fs=1&to=yadavs47334@gmail.com",
           cta:{

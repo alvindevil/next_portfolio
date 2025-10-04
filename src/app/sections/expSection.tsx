@@ -61,7 +61,7 @@ const experiences = [
 
 export default function ExperienceSection() {
   return (
-    <section className="max-w-[65vw] z-1 bg-black text-white py-16 px-6 md:px-12 cursor-pointer">
+    <section className="max-w-[65vw] z-1 bg-black text-white sm:py-16 sm:px-6 md:px-12 cursor-pointer">
       <h2 className="text-3xl md:text-4xl font-semibold mb-10 text-white">
         <span className='bg-gray-950 border-b-[0.3px] pb-1 pr-5 border-white/50 text-white'> Experience </span>
       </h2>
