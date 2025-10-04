@@ -67,7 +67,7 @@ const LandingPage = () => {
           years: "1+ yrs exp.",
           startEnd: "2024 → 2025",
           availability: "Available for work",
-          title: "Full Stack Developer",
+          title: "Tech Entrepreneur",
           quote:
             "WHETHER IT’S WRITING CODE OR STRUCTURING A LIFE, I AIM FOR CLARITY, CALM AND LONG-TERM IMPACT. I BELIEVE GOOD SYSTEMS ARE BUILT WITH INTENT AND CONSISTENCY",
           cvLink: "https://drive.google.com/uc?export=download&id=1uPlKH1DzVLAzScxA_ywjkL1PHiLirft6",
