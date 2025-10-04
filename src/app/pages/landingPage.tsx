@@ -47,7 +47,7 @@ const LandingPage = () => {
           scale: bgScale,
           opacity: bgOpacity,
         }}
-        className={`fixed top-0 left-0 h-full object-contain  transition-all duration-500 w-full z-0`}
+        className={`fixed top-0 left-0 h-full object-contain  transition-all ease-in-out duration-300 w-full `}
       />
 
        {/* Gradient Overlay (disappears on scroll) */}
@@ -57,7 +57,7 @@ const LandingPage = () => {
       />
       <motion.div 
       style={{opacity : lineOpacity}}
-      className="w-[2px] h-[800px] bg-white fixed right-[700px] top-28 z-20">
+      className="w-[2px] h-[800px] bg-gray-500 fixed right-[30%] top-28 z-20">
       </motion.div>
       
       <HeroSection
@@ -65,30 +65,55 @@ const LandingPage = () => {
           name: "SHIVAM YADAV",
           experience: "1+ yrs exp.",
           years: "1+ yrs exp.",
-          startEnd: "2023 → 2025",
+          startEnd: "2024 → 2025",
           availability: "Available for work",
           title: "Full Stack Developer",
           quote:
             "WHETHER IT’S WRITING CODE OR STRUCTURING A LIFE, I AIM FOR CLARITY, CALM AND LONG-TERM IMPACT. I BELIEVE GOOD SYSTEMS ARE BUILT WITH INTENT AND CONSISTENCY",
-          cvLink: "/files/cv.pdf",
+          cvLink: "https://drive.google.com/uc?export=download&id=1uPlKH1DzVLAzScxA_ywjkL1PHiLirft6",
           contactLink:
             "https://mail.google.com/mail/?view=cm&fs=1&to=yadavs47334@gmail.com",
           cta:{
                 type: "Work",
-                onClick: ()=>{router.push('/client/works');}
+                onClick: ()=>{router.push('#projects');}
               }
         }}
       />
-      <ExperienceSection />
-      <motion.div
-        initial={{ opacity: 0, y: 500 }} 
-        whileInView={{ opacity: 1, y: 0 }} 
+      <motion.div id="about"
+        initial={{ opacity: 0, y: 100 }}
+        whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, ease: "easeOut" }}
-        viewport={{ once: true, amount: 0.3 }} 
+        viewport={{ once: true, amount: 0.3 }}
       >
-      <ProjectsSection />
+        <AboutSection />
       </motion.div>
-      <SkillsSection />
+      <motion.div id="exp"
+        initial={{ opacity: 0, y: 100 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, ease: "easeOut" }}
+        viewport={{ once: true, amount: 0.3 }}
+      >
+        <ExperienceSection />
+      </motion.div>
+      <motion.div id="projects"
+        initial={{ opacity: 0, y: 100 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, ease: "easeOut" }}
+        viewport={{ once: true, amount: 0.3 }}
+      >
+        <ProjectsSection />
+      </motion.div>
+      <motion.div id="skills"
+        initial={{ opacity: 0, y: 100 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, ease: "easeOut" }}
+        viewport={{ once: true, amount: 0.3 }}
+      >
+        <SkillsSection />
+      </motion.div>
+      <motion.div id="contact" className="bg-black z-20 mt-28 pt-28">
+        <ContactSection />
+      </motion.div>
       <Footer />
     </div>
   );
