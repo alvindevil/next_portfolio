@@ -21,7 +21,7 @@ export default function AboutSection() {
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.7, ease: 'easeOut' }}
         viewport={{ once: true }}
-        className="max-w-4xl space-y-6 text-white/70 leading-relaxed"
+        className="max-w-4xl space-y-6 text-white/70 leading-relaxed sm:text-[20px] text-[12px]"
       >
         <p>
           I am a <span className="text-white font-semibold">Full Stack Developer</span> and 

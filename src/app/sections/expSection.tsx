@@ -61,14 +61,14 @@ const experiences = [
 
 export default function ExperienceSection() {
   return (
-    <section className="max-w-[65vw] z-1 bg-black text-white sm:py-16 sm:px-6 md:px-12 cursor-pointer">
+    <section className="sm:max-w-[65vw] w-full ml-4 sm:ml-0  z-1 bg-black text-white sm:py-16 sm:px-6 md:px-12 cursor-pointer sm:text-base text-[12px] ">
       <h2 className="text-3xl md:text-4xl font-semibold mb-10 text-white">
         <span className='bg-gray-950 border-b-[0.3px] pb-1 pr-5 border-white/50 text-white'> Experience </span>
       </h2>
 
       <div className="relative ml-4">
         {/* Vertical Timeline Line */}
-        <div className="absolute left-0 top-0 h-full w-[2px] bg-white/40"></div>
+        <div className="absolute left-0 top-0 h-full w-[2px] bg-white/40 "></div>
 
         <div className="space-y-12">
           {experiences.map((exp, idx) => (
@@ -87,9 +87,9 @@ export default function ExperienceSection() {
               className="absolute -left-[10px] mt-4 mb-3 w-5 h-5 rounded-full bg-white border-[6px] border-black box-border "></motion.div>
 
               {/* Card */}
-              <div className="ml-8  flex flex-row justify-between items-start  pl-6 py-6 bg-gray-900/10 rounded-lg  hover:border-white transition-all ease-in-out  w-full box-border">
+              <div className="ml-8 flex flex-row justify-between items-start px-2 pl-0 sm:pl-6 py-6  bg-gray-900/10 rounded-lg  w-full  ">
                 {/* Left Side: Text */}
-                <div className="flex-1 pr-6 space-y-3">
+                <div className="flex-1 pr-6 space-y-3 w-full">
                   <div className="flex items-center gap-3 flex-wrap">
                     <h3 className="text-xl md:text-2xl font-semibold text-white">
                       {exp.role}
@@ -111,7 +111,7 @@ export default function ExperienceSection() {
                 </div>
 
                 {/* Right Side: Logo + Social Links */}
-                <div className="flex flex-col items-center w-[10%] h-fit py-2 gap-y-2">
+                <div className="flex flex-col items-center sm:w-[10%] w-[30%] h-fit py-2 gap-y-2">
                   <img
                     className="w-full h-full object-cover "
                     src={exp.src}

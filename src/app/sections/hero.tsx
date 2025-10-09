@@ -115,7 +115,7 @@ export default function HeroSection({ prop }: HeroSectionProps) {
         {/* Right Quote */}
         <motion.blockquote
           style={{ y: subTextY, opacity: contentOpacity }}
-          className="absolute top-[20%] 
+          className="absolute sm:top-[20%] top-[15%]
              left-[5%] sm:left-auto sm:right-[5%] 
              w-[70%] sm:w-[30%] 
              text-[60%] sm:text-[14px] 
@@ -132,7 +132,7 @@ export default function HeroSection({ prop }: HeroSectionProps) {
         <motion.div style={{ opacity: contentOpacity }}>
           <button 
             onClick={prop.cta.onClick}
-            className="font-bold text-[16px] opacity-0 shadow-2xl hover:shadow-white/60 absolute right-[10%] sm:right-[5%] bottom-7% sm:bottom-[10%] cursor-pointer w-fit h-fit px-8 py-2 text-white border rounded-4xl bg-white/20 hover:bg-white/90 hover:text-black"
+            className="font-bold text-[16px] sm:opacity-100 opacity-0 shadow-2xl hover:shadow-white/60 absolute right-[10%] sm:right-[5%] bottom-7% sm:bottom-[10%] cursor-pointer w-fit h-fit px-8 py-2 text-white border rounded-4xl bg-white/20 hover:bg-white/90 hover:text-black"
           > 
             {prop.cta.type}
           </button>

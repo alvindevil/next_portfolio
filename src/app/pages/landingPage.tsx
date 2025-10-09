@@ -55,9 +55,10 @@ const LandingPage = () => {
         style={{ opacity: overlayOpacity }}
         className="fixed inset-0 bg-gradient-to-r from-black/80 to-gray-950/80 z-10 pointer-events-none"
       />
+      {/* middle line */}
       <motion.div 
       style={{opacity : lineOpacity}}
-      className="w-[2px] h-[800px] bg-gray-500 fixed right-[30%] top-28 z-20">
+      className="w-[2px] h-[800px] bg-gray-500 fixed right-[30%] top-28 z-20 hidden sm:block">
       </motion.div>
       
       <HeroSection
