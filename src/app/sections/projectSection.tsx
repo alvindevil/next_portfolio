@@ -7,7 +7,7 @@ const projects = [
   {
     name: 'NotionBlog',
     description: 'A full stack web blog application using NextJs and mongoDb , Users can write and share blogs publicly and search and connect to each other , User Auth , Secure  features ',
-    tech: ['Next.js', 'TailwindCSS', 'MDX'],
+    tech: ['Next.js', 'TailwindCSS', 'jwt', 'nextJsAuth', 'MDX','typescript','tailwindcss','mongodb'],
     src: "/images/projects/NotionBlog.png",
     github: 'https://github.com/alvindevil/NextJs_Auth',
     demo: 'https://next-js-auth-amber.vercel.app/',
@@ -15,7 +15,7 @@ const projects = [
   {
     name: 'AiDocify',
     description: 'AiDocify is an AI-powered tool that automates document creation, organization, and summarization. It extracts key information and generates insights, boosting efficiency and productivity.',
-    tech: ['React', 'Node.js', 'OpenAI API'],
+    tech: ['NextJs', 'Node.js', 'OpenAI API', 'Langchain','TypeScript','bullMq', 'Docker', 'Redish','valkey','tailwindcss','mongodb'],
     src: "/images/projects/AiDocify.png",
     github: 'https://github.com/alvindevil/Ai_Docify',
     demo: 'ai-docify-ten.vercel.app',
@@ -23,7 +23,7 @@ const projects = [
   {
     name: 'Innovate Hub',
     description: 'Innovate Hub is a startup-focused platform  that connects entrepreneurs, mentors, and investors. It streamlines idea validation, collaboration, and resource sharing to accelerate innovation.',
-    tech: ['Firebase', 'React', 'TailwindCSS'],
+    tech: ['Express.js', 'NextJsAuth', 'TailwindCSS','NodeJs','vercel','mongodb'],
     src: "/images/projects/InnovateHub.png",
     github: 'https://github.com/alvindevil/founders-hub',
     demo: 'https://github.com/alvindevil/founders-hub',
@@ -32,7 +32,7 @@ const projects = [
 
 export default function ProjectsSection() {
   return (
-    <section className="max-w-[65vw] bg-black text-white py-16 px-6 md:px-12 cursor-pointer relative ">
+    <section className="sm:max-w-[65vw] w-full bg-black text-white py-16 px-6 md:px-12 cursor-pointer relative ">
       {/* Sticky title */}
       <h2 className="sticky top-0 bg-black text-3xl md:text-4xl font-semibold mb-10 text-white  z-10">
         Projects
@@ -42,7 +42,7 @@ export default function ProjectsSection() {
         {projects.map((project, idx) => (
           <div
             key={idx}
-            className=" flex flex-col w-[98%] left-0 md:flex-row bg-gray-900/60 border border-gray-700 rounded-xl overflow-hidden hover:border-blue-400/50 transition-colors duration-300 "
+            className=" flex flex-col  sm:w-[98%] w-full left-0 md:flex-row bg-gray-900/60 border border-gray-700 rounded-xl overflow-hidden hover:border-blue-400/50 transition-colors duration-300 "
           >
             {/* Left: Image */}
             <div className="relative p-2 w-full md:w-1/2 h-[220px] md:h-[280px] overflow-hidden">
@@ -61,12 +61,12 @@ export default function ProjectsSection() {
             </div>
 
             {/* Right: Content */}
-            <div className="flex flex-col justify-between p-6 md:w-1/2">
+            <div className="flex flex-col justify-between p-6 md:w-1/2 ">
               <h3 className="text-2xl font-bold mb-2 text-white group-hover:text-green-400">
                 {project.name}
               </h3>
 
-              <p className="text-gray-400 mb-4 hidden md:block">{project.description}</p>
+              <p className="text-gray-400 mb-4  md:block">{project.description}</p>
 
               {/* Tech badges */}
               <div className="flex flex-wrap gap-2 mb-4">

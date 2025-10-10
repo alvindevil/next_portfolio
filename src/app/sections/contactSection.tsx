@@ -46,9 +46,9 @@ export default function ContactSection() {
           whileInView={{ opacity: 1, x: 0, scale: 1, rotate: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.9, ease: 'easeOut' }}
-          className="w-full md:w-1/2 h-1/2 md:h-full flex justify-center items-center bg-black"
+          className="w-full md:w-1/2 h-auto md:h-full flex justify-self-start items-center bg-black"
         >
-          <form className="w-[90%] md:w-[80%] bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl p-8 flex flex-col space-y-6 shadow-lg">
+          <form className="w-[90%]  md:w-[80%] bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl p-8 flex flex-col space-y-6 shadow-lg">
             
             <h2 className="text-2xl font-semibold text-white">Contact Me</h2>
             
