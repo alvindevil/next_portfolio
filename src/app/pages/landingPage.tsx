@@ -10,11 +10,14 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { useRouter } from "next/navigation";
 import AboutSection from "../sections/aboutSection";
 import ContactSection from "../sections/contactSection";
+import PersonalBot from "../sections/PersonalBot";
+import { MessageCircle, X } from 'lucide-react';
 
 const LandingPage = () => {
   const { scrollY } = useScroll();
   const [isLayer, setIsLayer] = useState(true);
-   const [isScroll, setIsScroll] = useState(false);
+  const [isBotOpen, setIsBotOpen] = useState(false);
+  const [isScroll, setIsScroll] = useState(false);
 
   const router = useRouter();
   
@@ -71,12 +74,12 @@ const LandingPage = () => {
           title: "Tech Entrepreneur",
           quote:
             "WHETHER IT’S WRITING CODE OR STRUCTURING A LIFE, I AIM FOR CLARITY, CALM AND LONG-TERM IMPACT. I BELIEVE GOOD SYSTEMS ARE BUILT WITH INTENT AND CONSISTENCY",
-          cvLink: "https://drive.google.com/uc?export=download&id=1H9I2-6ff58Rc-iU1ylDrHwHILV1rhUY- ",
+          cvLink: "https://drive.google.com/uc?export=download&id=1YD0fkbzVVyJ3g8ZoCYDFKDJJF_ZKZm75",
           contactLink:
             "https://mail.google.com/mail/?view=cm&fs=1&to=yadavs47334@gmail.com",
           cta:{
                 type: "Work",
-                onClick: ()=>{router.push('#projects');}
+                onClick: ()=>{router.push('/client/works');}
               }
         }}
       />
@@ -88,6 +91,37 @@ const LandingPage = () => {
       >
         <AboutSection />
       </motion.div>
+
+      <div className="fixed bottom-6 right-6 z-50 flex flex-col items-end">
+      {/* Chat Box */}
+      {isBotOpen && (
+        <div className="relative mb-3 animate-fade-in">
+          {/* The PersonalBot itself */}
+          <PersonalBot />
+
+          {/* Close (X) button inside chat box */}
+          <button
+            onClick={() => setIsBotOpen(false)}
+            className="absolute -right-3 -top-1 cursor-pointer bg-red-400 hover:bg-red-500 text-white rounded-full p-2 shadow-lg transition-all duration-300"
+            aria-label="Close chat"
+          >
+            <X size={10} />
+          </button>
+        </div>
+      )}
+
+      {/* Floating Chat Button */}
+      {!isBotOpen && (
+        <button
+          onClick={() => setIsBotOpen(true)}
+          className="bg-green-500 hover:bg-green-400 text-white p-4 rounded-full shadow-lg transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-green-400"
+          aria-label="Open chat"
+        >
+          <MessageCircle size={22} />
+        </button>
+      )}
+    </div>
+
       <motion.div id="exp"
         initial={{ opacity: 0, y: 100 }}
         whileInView={{ opacity: 1, y: 0 }}
