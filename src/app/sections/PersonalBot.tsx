@@ -15,7 +15,6 @@ export default function PersonalBot() {
     const newUserMessage = { from: 'user', text: input };
     setMessages((prev) => [...prev, newUserMessage]);
 
-    // Simulated bot response (you can replace this later with a real AI API)
     setTimeout(() => {
       const reply = getBotReply(input);
       setMessages((prev) => [...prev, { from: 'bot', text: reply }]);

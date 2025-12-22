@@ -19,6 +19,11 @@ const LandingPage = () => {
   const [isBotOpen, setIsBotOpen] = useState(false);
   const [isScroll, setIsScroll] = useState(false);
 
+  const [isAdminOpen, setIsAdminOpen] = useState(false);
+  const [adminError, setAdminError] = useState("");
+  const [adminLoading, setAdminLoading] = useState(false);
+
+
   const router = useRouter();
   
    useEffect(() => {
@@ -30,6 +35,29 @@ const LandingPage = () => {
   }, [scrollY]);
 
 
+  useEffect(() => {
+  let buffer: string[] = [];
+  let timer: NodeJS.Timeout;
+
+  const handler = (e: KeyboardEvent) => {
+    buffer.push(e.key.toLowerCase());
+
+    clearTimeout(timer);
+    timer = setTimeout(() => (buffer = []), 220);
+
+    if (buffer.join("") === "admin") {
+      setIsAdminOpen(prev => !prev);
+      buffer = [];
+    }
+  };
+
+  window.addEventListener("keydown", handler);
+  return () => window.removeEventListener("keydown", handler);
+}, []);
+
+
+
+
   const bgX = useTransform(scrollY, [0, 10], [0, 600]);      
   const bgY = useTransform(scrollY, [0, 10], [400, 0]);      
   const bgScale = useTransform(scrollY, [0, 10], [2, 0.8]); 
@@ -37,6 +65,35 @@ const LandingPage = () => {
   const overlayOpacity = useTransform(scrollY, [0, 600], [1, 0]);
   const lineOpacity = useTransform(scrollY, [0,4000,5000], [0,0.5,0]);
   const contentOpacity = useTransform(scrollY, [0,1200], [0,1]);
+
+
+  const handleAdminSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+  e.preventDefault();
+  setAdminLoading(true);
+  setAdminError("");
+
+  const formData = new FormData(e.currentTarget);
+
+  try {
+    const res = await fetch("/api/admin", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        name: formData.get("name"),
+        password: formData.get("password"),
+      }),
+    });
+
+    if (!res.ok) throw new Error("Invalid credentials");
+
+    router.push("/client/admin");
+  } catch (err: any) {
+    setAdminError(err.message || "Login failed");
+  } finally {
+    setAdminLoading(false);
+  }
+};
+
 
   return (
     <div className="flex flex-col overflow-x-hidden bg-black">
@@ -150,6 +207,62 @@ const LandingPage = () => {
         <ContactSection />
       </motion.div>
       <Footer />
+      {/* Admin Login Modal */}
+{isAdminOpen && (
+  <div className="fixed inset-0 z-[999] flex items-center justify-center bg-black/70 backdrop-blur-sm">
+    <div className="w-full max-w-sm rounded-lg border border-zinc-700 bg-zinc-900 p-6 shadow-2xl">
+      <h2 className="mb-4 text-center text-lg font-semibold text-zinc-100">
+        Admin Access
+      </h2>
+
+      <form onSubmit={handleAdminSubmit} className="space-y-4">
+        <input
+          name="name"
+          placeholder="Admin name"
+          required
+          className="w-full rounded-md bg-zinc-800 px-3 py-2 text-sm text-zinc-100 ring-1 ring-zinc-700 focus:ring-indigo-500 outline-none"
+        />
+
+        <input
+          type="password"
+          name="password"
+          placeholder="Password"
+          required
+          className="w-full rounded-md bg-zinc-800 px-3 py-2 text-sm text-zinc-100 ring-1 ring-zinc-700 focus:ring-indigo-500 outline-none"
+        />
+
+        {adminError && (
+          <p className="text-center text-sm text-red-400">
+            {adminError}
+          </p>
+        )}
+
+        <div className="flex gap-2 pt-2">
+          <button
+            type="submit"
+            disabled={adminLoading}
+            className="flex-1 rounded-md bg-indigo-600 py-2 text-sm font-medium text-white hover:bg-indigo-500 disabled:opacity-50"
+          >
+            {adminLoading ? "Verifying..." : "Login"}
+          </button>
+
+          <button
+            type="button"
+            onClick={() => setIsAdminOpen(false)}
+            className="flex-1 rounded-md bg-zinc-700 py-2 text-sm text-zinc-200 hover:bg-zinc-600"
+          >
+            Cancel
+          </button>
+        </div>
+      </form>
+
+      <p className="mt-4 text-center text-xs text-zinc-500">
+        type 'admin' to close
+      </p>
+    </div>
+  </div>
+)}
+
     </div>
   );
 };
