@@ -35,7 +35,6 @@ export async function POST(req: Request) {
       );
     }
 
-    // ✅ Auth success
     return NextResponse.json(
       { success: true },
       { status: 200 }
