@@ -9,14 +9,14 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { useRouter } from "next/navigation";
 import AboutSection from "../sections/aboutSection";
 import ContactSection from "../sections/contactSection";
-import PersonalBot from "../sections/PersonalBot";
-import { MessageCircle, X } from 'lucide-react';
+//import PersonalBot from "../sections/PersonalBot";
+//import { MessageCircle, X } from 'lucide-react';
 
 const LandingPage = () => {
   const { scrollY } = useScroll();
-  const [isLayer, setIsLayer] = useState(true);
+  //const [isLayer, setIsLayer] = useState(true);
+  //const [isScroll, setIsScroll] = useState(false);
   const [isBotOpen, setIsBotOpen] = useState(false);
-  const [isScroll, setIsScroll] = useState(false);
 
   const [isAdminOpen, setIsAdminOpen] = useState(false);
   const [adminError, setAdminError] = useState("");
@@ -25,18 +25,18 @@ const LandingPage = () => {
 
   const router = useRouter();
   
-   useEffect(() => {
-    const unsubscribe = scrollY.onChange((latest) => {
-      setIsScroll(latest >= 200); 
-    });
+  // useEffect(() => {
+  //   const unsubscribe = scrollY.onChange((latest) => {
+  //     setIsScroll(latest >= 200); 
+  //   });
 
-    return () => unsubscribe();
-  }, [scrollY]);
+  //   return () => unsubscribe();
+  // }, [scrollY]);
 
 
   useEffect(() => {
   let buffer: string[] = [];
-  let timer: NodeJS.Timeout;
+  let timer: ReturnType<typeof setTimeout>;
 
   const handler = (e: KeyboardEvent) => {
     buffer.push(e.key.toLowerCase());
@@ -61,7 +61,7 @@ const bgScale = useTransform(scrollY, [0, 10], [2, 0.8]);
 const bgOpacity = useTransform(scrollY, [0, 300], [1, 0.5]); 
 const overlayOpacity = useTransform(scrollY, [0, 600], [1, 0]);
 const lineOpacity = useTransform(scrollY, [0,4000,5000], [0,0.5,0]);
-const contentOpacity = useTransform(scrollY, [0,1200], [0,1]);
+//const contentOpacity = useTransform(scrollY, [0,1200], [0,1]);
 
 
 const handleAdminSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -84,8 +84,8 @@ try {
   if (!res.ok) throw new Error("Invalid credentials");
 
   router.push("/client/admin");
-  } catch (err: any) {
-    setAdminError(err.message || "Login failed");
+  } catch (err: unknown) {
+    setAdminError((err as Error).message || "Login failed");
   } finally {
     setAdminLoading(false);
   }
@@ -145,36 +145,6 @@ try {
       >
         <AboutSection />
       </motion.div>
-
-      <div className="fixed bottom-6 right-6 z-50 flex flex-col items-end">
-      {/* Chat Box */}
-      {isBotOpen && (
-        <div className="relative mb-3 animate-fade-in">
-          {/* The PersonalBot itself */}
-          <PersonalBot />
-
-          {/* Close (X) button inside chat box */}
-          <button
-            onClick={() => setIsBotOpen(false)}
-            className="absolute -right-3 -top-1 cursor-pointer bg-red-400 hover:bg-red-500 text-white rounded-full p-2 shadow-lg transition-all duration-300"
-            aria-label="Close chat"
-          >
-            <X size={10} />
-          </button>
-        </div>
-      )}
-
-      {/* Floating Chat Button */}
-      {!isBotOpen && (
-        <button
-          onClick={() => setIsBotOpen(true)}
-          className="bg-green-500 hover:bg-green-400 text-white p-4 rounded-full shadow-lg transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-green-400"
-          aria-label="Open chat"
-        >
-          <MessageCircle size={22} />
-        </button>
-      )}
-    </div>
 
       <motion.div id="exp"
         initial={{ opacity: 0, y: 100 }}
@@ -254,7 +224,7 @@ try {
       </form>
 
       <p className="mt-4 text-center text-xs text-zinc-500">
-        type 'admin' to close
+        type &apos;admin&apos; to close
       </p>
     </div>
   </div>
@@ -265,3 +235,38 @@ try {
 };
 
 export default LandingPage;
+
+
+
+
+
+// chatBot floating when needed AI :---------- 
+
+{/* <div className="fixed bottom-6 right-6 z-50 flex flex-col items-end">
+    {isBotOpen && (
+      <div className="relative mb-3 animate-fade-in">
+        <PersonalBot />
+
+        <button
+          onClick={() => setIsBotOpen(false)}
+          className="absolute -right-3 -top-1 cursor-pointer bg-red-400 hover:bg-red-500 text-white rounded-full p-2 shadow-lg transition-all duration-300"
+          aria-label="Close chat"
+        >
+          <X size={10} />
+        </button>
+      </div>
+    )}
+
+    {!isBotOpen && (
+      <button
+        onClick={() => setIsBotOpen(true)}
+        className="bg-green-500 hover:bg-green-400 text-white p-4 rounded-full shadow-lg transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-green-400"
+        aria-label="Open chat"
+      >
+        <MessageCircle size={22} />
+      </button>
+    )}
+</div> 
+*/}
+
+//--------------

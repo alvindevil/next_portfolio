@@ -40,6 +40,7 @@ export async function POST(req: Request) {
       { status: 200 }
     );
   } catch (error) {
+    console.error(error);
     return NextResponse.json(
       { message: "Invalid request" },
       { status: 400 }

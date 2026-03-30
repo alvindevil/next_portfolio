@@ -34,6 +34,18 @@ export default function HeroSection({ prop }: HeroSectionProps) {
     return () => clearInterval(interval);
   }, []);
 
+  
+// TO Hide the download resume alert and link, just comment out the below function and the corresponding link in the JSX.
+// function downloadResume() {
+//   const link = "https://drive.google.com/uc?export=download&id=1FllJ47WnTIotvFq3J71PgMEiJ6ekdnse";
+  
+//   // Trigger download
+//   window.open(link, "_blank");
+
+//   // Show message
+//   alert("Your resume download has started ✅");
+// }
+
   // Text / content transforms
   const textY = useTransform(scrollY, [0, 300], [0, -100]);
   const subTextY = useTransform(scrollY, [0, 300], [0, -50]);
