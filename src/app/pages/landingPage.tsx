@@ -5,7 +5,6 @@ import ProjectsSection from "../sections/projectSection";
 import ExperienceSection from "../sections/expSection";
 import SkillsSection from "../sections/skillSection";
 import Footer from "../components/layout/footer";
-import DynamicHeader from "../components/layout/DynamicHeader";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRouter } from "next/navigation";
 import AboutSection from "../sections/aboutSection";
@@ -56,37 +55,35 @@ const LandingPage = () => {
 }, []);
 
 
+const bgX = useTransform(scrollY, [0, 10], [0, 600]);      
+const bgY = useTransform(scrollY, [0, 10], [400, 0]);      
+const bgScale = useTransform(scrollY, [0, 10], [2, 0.8]); 
+const bgOpacity = useTransform(scrollY, [0, 300], [1, 0.5]); 
+const overlayOpacity = useTransform(scrollY, [0, 600], [1, 0]);
+const lineOpacity = useTransform(scrollY, [0,4000,5000], [0,0.5,0]);
+const contentOpacity = useTransform(scrollY, [0,1200], [0,1]);
 
 
-  const bgX = useTransform(scrollY, [0, 10], [0, 600]);      
-  const bgY = useTransform(scrollY, [0, 10], [400, 0]);      
-  const bgScale = useTransform(scrollY, [0, 10], [2, 0.8]); 
-  const bgOpacity = useTransform(scrollY, [0, 300], [1, 0.5]); 
-  const overlayOpacity = useTransform(scrollY, [0, 600], [1, 0]);
-  const lineOpacity = useTransform(scrollY, [0,4000,5000], [0,0.5,0]);
-  const contentOpacity = useTransform(scrollY, [0,1200], [0,1]);
+const handleAdminSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+e.preventDefault();
+setAdminLoading(true);
+setAdminError("");
 
+const formData = new FormData(e.currentTarget);
 
-  const handleAdminSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-  e.preventDefault();
-  setAdminLoading(true);
-  setAdminError("");
+try {
+  const res = await fetch("/api/admin", {
+  method: "POST",
+  headers: { "Content-Type": "application/json" },
+  body: JSON.stringify({
+    name: formData.get("name"),
+    password: formData.get("password"),
+  }),
+  });
 
-  const formData = new FormData(e.currentTarget);
+  if (!res.ok) throw new Error("Invalid credentials");
 
-  try {
-    const res = await fetch("/api/admin", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        name: formData.get("name"),
-        password: formData.get("password"),
-      }),
-    });
-
-    if (!res.ok) throw new Error("Invalid credentials");
-
-    router.push("/client/admin");
+  router.push("/client/admin");
   } catch (err: any) {
     setAdminError(err.message || "Login failed");
   } finally {
@@ -131,7 +128,7 @@ const LandingPage = () => {
           title: "Tech Entrepreneur",
           quote:
             "WHETHER IT’S WRITING CODE OR STRUCTURING A LIFE, I AIM FOR CLARITY, CALM AND LONG-TERM IMPACT. I BELIEVE GOOD SYSTEMS ARE BUILT WITH INTENT AND CONSISTENCY",
-          cvLink: "https://drive.google.com/uc?export=download&id=1YD0fkbzVVyJ3g8ZoCYDFKDJJF_ZKZm75",
+          cvLink: "https://drive.google.com/uc?export=download&id=1FllJ47WnTIotvFq3J71PgMEiJ6ekdnse",
           contactLink:
             "https://mail.google.com/mail/?view=cm&fs=1&to=yadavs47334@gmail.com",
           cta:{

@@ -48,7 +48,10 @@ export default function ContactSection() {
           transition={{ duration: 0.9, ease: 'easeOut' }}
           className="w-full md:w-1/2 h-auto md:h-full flex justify-self-start items-center bg-black"
         >
-          <form className="w-[90%]  md:w-[80%] bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl p-8 flex flex-col space-y-6 shadow-lg">
+          <form 
+          //  action="https://formspree.io/f/mgoapbkj"
+          //  method="POST"
+          className="w-[90%]  md:w-[80%] bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl p-8 flex flex-col space-y-6 shadow-lg">
             
             <h2 className="text-2xl font-semibold text-white">Contact Me</h2>
             
@@ -63,12 +66,14 @@ export default function ContactSection() {
               >
                 {placeholder === 'Your Message' ? (
                   <textarea
+                  name='message'
                     placeholder={placeholder}
                     rows={4}
                     className="p-3 rounded-lg bg-white/10 border border-white/20 placeholder-gray-300 text-white focus:outline-none focus:border-blue-400 transition-all w-full"
                   />
                 ) : (
                   <input
+                  name='name'
                     type={placeholder === 'Your Email' ? 'email' : 'text'}
                     placeholder={placeholder}
                     className="p-3 rounded-lg bg-white/10 border border-white/20 placeholder-gray-300 text-white focus:outline-none focus:border-blue-400 transition-all w-full"
@@ -78,7 +83,7 @@ export default function ContactSection() {
             ))}
 
             <motion.button
-            onClick={() =>  window.alert("Message Sent Successfully")}
+            onClick={() =>  setTimeout(() => window.alert("Message Sent Successfully"), 1000)}
               whileHover={{ backgroundColor: "white" }}
               whileTap={{ scale: 0.95 }}
               transition={{ type: 'spring', stiffness: 120, damping: 15 }}

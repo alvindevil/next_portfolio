@@ -46,10 +46,7 @@ export default function AdminDashboard() {
 
 
   const handleLogout = () => {
-  // Future-proof: clear any stored admin flags/tokens
   localStorage.removeItem("admin-auth");
-
-  // Redirect to landing page
   window.location.href = "/";
 };
 
@@ -139,12 +136,15 @@ export default function AdminDashboard() {
           ))
         )}
       </div>
+
+      {/* LOGOUT BUTTON  */}
       <button
-    onClick={() => handleLogout()}
-    className="rounded-md bg-red-600 px-4 py-2 text-sm text-white hover:bg-red-500"
-  >
-    Logout
-  </button>
+        onClick={() => handleLogout()}
+        className="rounded-md bg-red-600 px-4 py-2 text-sm text-white hover:bg-red-500"
+      >
+        Logout
+      </button>
+      
     </div>
   );
 }
